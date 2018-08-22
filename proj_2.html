@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+#img1 {
+    position:absolute;
+    display: block;
+    z-index: 2;
+    
+}
+
+.center {
+    display: block;
+    margin-left: 600px;
+    margin-top: 200px;
+    width: 8%;
+    
+}
+
+#imgA1
+{   position:absolute;
+	display: block;
+    z-index: 1;
+}
+
+.center1 {
+    margin-left: 350px;
+    margin-top: 80px;
+    width: 10;
+    height: 15;
+    
+}
+
+
+ #h1
+{
+    font-family: "Dancing Script", cursive;
+    text-shadow: 1px 1px 1px #000, 
+               3px 3px 5px blue; 
+    font-weight: 700;
+    font-size: 60px;
+    color: black;
+    margin-top: 0;
+    margin-bottom: 15px;
+    margin-left: 400px;
+ }     
+
+#status
+{
+	margin-top: 0px;
+	margin-left: 0px;
+}
+
+#status1
+{
+	margin-top: 10px;
+	margin-left: 0px;
+}
+
+
+</style>
+<script>
+var looper;
+var degrees = 0;
+function rotateAnimation(el,speed)
+{
+	var elem = document.getElementById(el);
+	if(navigator.userAgent.match("Chrome"))
+	{
+        elem.style.WebkitTransform = "rotate("+degrees+"deg)";
+	}  
+	else if(navigator.userAgent.match("Firefox"))
+	{
+		elem.style.MozTransform = "rotate("+degrees+"deg)";
+	} 
+	else if(navigator.userAgent.match("MSIE"))  
+	{
+		elem.style.msTransform = "rotate("+degrees+"deg)";
+	} 
+	else if(navigator.userAgent.match("Opera"))
+	{
+		elem.style.OTransform = "rotate("+degrees+"deg)";
+	} else 
+	{
+		elem.style.transform = "rotate("+degrees+"deg)";
+	}
+
+	looper = setTimeout('rotateAnimation(\''+el+'\','+speed+')',speed);
+	degrees++;
+	if(degrees > 359){
+
+		degrees = 1;
+	}
+	document.getElementById("status").innerHTML = "Rotate ball object("+degrees+"deg)";
+}
+</script>
+
+<script>
+	var looper1;
+var degree1 = 0;
+function rotateAnimation1(el1,speed1)
+{
+	var elem = document.getElementById(el1);
+	if(navigator.userAgent.match("Chrome"))
+	{
+		
+		elem.style.WebkitTransform = "rotateY("+degree1+"deg)";
+	}  
+	else if(navigator.userAgent.match("Firefox"))
+	{
+		elem.style.MozTransform = "rotateY("+degree1+"deg)";
+	} 
+	else if(navigator.userAgent.match("MSIE"))  
+	{
+		elem.style.msTransform = "rotateY("+degree1+"deg)";
+	} 
+	else if(navigator.userAgent.match("Opera"))
+	{
+		elem.style.OTransform = "rotateY("+degree1+"deg)";
+	} else 
+	{
+		elem.style.transform = "rotateY("+degree1+"deg)";
+	}
+
+	looper1 = setTimeout('rotateAnimation1(\''+el1+'\','+speed1+')',speed1);
+	degree1++;
+	if(degree1 > 359){
+
+		degree1 = 1;
+	}
+	document.getElementById("status1").innerHTML = "Rotate hand("+degree1+"deg)";
+}
+</script>
+
+</head>
+<body background="3742770-white-background-wallpaper.jpg">
+<h1 id="h1">Here Is My Animation</h1>
+<img id="img1"  class="center" src="3DSphere-blue.png">
+<script>rotateAnimation("img1",-5);</script>
+<h2 style="width:200px;" id="status"></h2>
+<img id="imgA1" class="center1" src="1-140G3164538.jpg">
+<script>rotateAnimation1("imgA1",-20);</script>
+<h2 style="width:200px;" id="status1"></h2>
+
+</body>  
+</html>
